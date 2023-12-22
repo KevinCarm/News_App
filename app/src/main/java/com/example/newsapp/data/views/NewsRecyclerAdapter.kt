@@ -9,11 +9,12 @@ import com.example.newsapp.R
 import com.example.newsapp.data.Article
 
 class NewsRecyclerAdapter(
-    private var list: List<Article>
-): RecyclerView.Adapter<NewsRecyclerAdapter.ViewHolder>() {
+    private var list: List<Article>,
+    val onClickCardEvent: (Article) -> Unit
+) : RecyclerView.Adapter<NewsRecyclerAdapter.ViewHolder>() {
 
 
-    class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val title: TextView
         val author: TextView
         val content: TextView
@@ -34,11 +35,14 @@ class NewsRecyclerAdapter(
     override fun getItemCount(): Int = list.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-      with(list[position]) {
-          holder.title.text = title
-          holder.author.text = author
-          holder.content.text = description
-      }
+        with(list[position]) {
+            holder.title.text = title
+            holder.author.text = author
+            holder.content.text = description
+        }
+        holder.itemView.setOnClickListener {
+           onClickCardEvent(list[position])
+        }
     }
 
     fun setList(newList: List<Article>) {
