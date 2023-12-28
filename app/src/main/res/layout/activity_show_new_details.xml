@@ -53,12 +53,25 @@
             android:text="The generative AI movement may dominate today’s headlines, but another technological transformation is gaining momentum under the radar—the proliferation of autonomous service robots"
             android:textSize="18sp" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/origin"
+            android:clickable="true"
+            android:linksClickable="true"
+            android:layout_below="@id/content"
+            android:layout_marginTop="5dp"
+            android:textSize="18sp"
+            android:textColorLink="@android:color/holo_blue_dark"
+            android:text="To se more click here"
+            android:focusable="true" />
+
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageNew"
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:layout_below="@id/content"
+            android:layout_below="@id/origin"
             android:layout_marginTop="15dp" />
 
 

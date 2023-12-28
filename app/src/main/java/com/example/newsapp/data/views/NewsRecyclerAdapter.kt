@@ -41,7 +41,7 @@ class NewsRecyclerAdapter(
             holder.content.text = description
         }
         holder.itemView.setOnClickListener {
-           onClickCardEvent(list[position])
+            onClickCardEvent(list[position])
         }
     }
 

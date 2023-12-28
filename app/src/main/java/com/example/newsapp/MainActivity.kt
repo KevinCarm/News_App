@@ -73,6 +73,7 @@ class MainActivity : AppCompatActivity(), TextView.OnEditorActionListener {
                 it.putExtra("author", "Author: ${article.author}")
                 it.putExtra("content", article.content.substring(0, 200))
                 it.putExtra("url", article.urlToImage)
+                it.putExtra("origin", article.url)
             }
         startActivity(intent)
     }

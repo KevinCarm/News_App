@@ -3,10 +3,15 @@ package com.example.newsapp.data.views
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.text.Html
+import android.text.SpannableString
 import android.text.method.LinkMovementMethod
+import android.text.style.URLSpan
+import android.text.util.Linkify
 import android.util.Log
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.newsapp.databinding.ActivityShowNewDetailsBinding
+import com.example.newsapp.utils.URLSpanUnderline
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -33,7 +38,7 @@ class ShowNewDetails : AppCompatActivity() {
         this.author = bundle.getString("author")!!
         this.content = bundle.getString("content")!!
         this.url = if(bundle.getString("url") == null) "" else bundle.getString("url")!!
-
+        this.origin = bundle.getString("origin")!!
         setup()
     }
 
@@ -42,6 +47,10 @@ class ShowNewDetails : AppCompatActivity() {
         this.binding.title.text = this.title
         this.binding.author.text = this.author
         this.binding.content.text = this.content
+        this.binding.origin.movementMethod = LinkMovementMethod.getInstance()
+        val policy = Html.fromHtml(this.origin)
+        this.binding.origin.text = policy
+        Linkify.addLinks(this.binding.origin, Linkify.WEB_URLS)
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val imageUrl = URL(this@ShowNewDetails.url)
