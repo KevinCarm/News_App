@@ -3,15 +3,11 @@ package com.example.newsapp.data.views
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.text.Html
-import android.text.SpannableString
 import android.text.method.LinkMovementMethod
-import android.text.style.URLSpan
 import android.text.util.Linkify
 import android.util.Log
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.newsapp.databinding.ActivityShowNewDetailsBinding
-import com.example.newsapp.utils.URLSpanUnderline
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

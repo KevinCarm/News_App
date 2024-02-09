@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity(), TextView.OnEditorActionListener {
             binding.progressIndicator.visibility = View.VISIBLE
             with(binding.searchInput) {
                 if (text.toString().isNotEmpty()) {
-                    viewModel.getArticles(text.toString(), 25, getString(R.string.apiKey))
+                    viewModel.getArticles(text.toString(), 50, getString(R.string.apiKey))
                     hideKeyBoard()
                     return true
                 }
